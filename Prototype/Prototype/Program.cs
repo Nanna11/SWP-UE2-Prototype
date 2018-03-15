@@ -18,6 +18,9 @@ namespace Prototype
                 SwordPrototype sword2 = sm[s];
                 if (sword1 == sword2) Console.WriteLine("same sword");
                 else Console.WriteLine("only same type of sword");
+
+                if (sword1.Handle == sword2.Handle) Console.WriteLine("same handle");
+                else Console.WriteLine("swords have their own handle");
                 Console.WriteLine("");
             }
             Console.ReadKey();

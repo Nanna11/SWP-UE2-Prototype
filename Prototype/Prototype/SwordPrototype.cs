@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Prototype
 {
-    class SwordPrototype
+    [Serializable]
+    class SwordPrototype : Prototype<SwordPrototype>
     {
         string _swordtype;
         int _hitpoints;
@@ -14,13 +15,18 @@ namespace Prototype
         double _weight;
         string _material;
 
-        public SwordPrototype(string SwordType, int Hitpoints, double Lenght, double Weight, string Matrtial)
+        double _durability;
+        Handle _handle;
+
+        public SwordPrototype(string SwordType, int Hitpoints, double Lenght, double Weight, string Material, Handle Handle)
         {
             _swordtype = SwordType;
             _hitpoints = Hitpoints;
             _lenght = Lenght;
             _weight = Weight;
-            _material = Matrtial;
+            _material = Material;
+
+            _handle = Handle;
         }
 
         public int Hitpoints { get => _hitpoints;}
@@ -28,11 +34,12 @@ namespace Prototype
         public double Weight { get => _weight;}
         public string Material { get => _material;}
         public string Swordtype { get => _swordtype;}
+        internal Handle Handle { get => _handle; }
 
-        public SwordPrototype Clone()
-        {
-            Console.WriteLine("Cloning Sword: {0} - Hitpoints: {1}", _swordtype, Hitpoints);
-            return this.MemberwiseClone() as SwordPrototype;
-        }
+        //public SwordPrototype Clone()
+        //{
+        //    Console.WriteLine("Cloning Sword: {0} - Hitpoints: {1}", _swordtype, Hitpoints);
+        //    return MemberwiseClone() as SwordPrototype;
+        //}
     }
 }

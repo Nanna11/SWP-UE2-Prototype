@@ -37,7 +37,7 @@ namespace Prototype
                 Material = Parameters[4];
                 try
                 {
-                    _swords.Add(Name, new SwordPrototype(Name, Hitpoints, Lenght, Weight, Material));
+                    _swords.Add(Name, new SwordPrototype(Name, Hitpoints, Lenght, Weight, Material, new Handle()));
                 }
                 catch (ArgumentException)
                 {
@@ -64,7 +64,7 @@ namespace Prototype
         {
             get
             {
-                return _swords[key].Clone();
+                return _swords[key].Clone<SwordPrototype>();
             }
         }
 
