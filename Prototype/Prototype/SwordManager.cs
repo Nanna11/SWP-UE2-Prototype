@@ -30,14 +30,16 @@ namespace Prototype
                 double Lenght;
                 double Weight;
                 string Material;
+                double Durability;
                 if(string.IsNullOrEmpty(Name = Parameters[0])) continue;
                 if(!int.TryParse(Parameters[1], out Hitpoints)) continue;
                 if (!double.TryParse(Parameters[2], out Lenght)) continue;
                 if (!double.TryParse(Parameters[3], out Weight)) continue;
                 Material = Parameters[4];
+                if (!double.TryParse(Parameters[3], out Durability)) continue;
                 try
                 {
-                    _swords.Add(Name, new SwordPrototype(Name, Hitpoints, Lenght, Weight, Material, new Handle()));
+                    _swords.Add(Name, new SwordPrototype(Name, Hitpoints, Lenght, Weight, Material, Durability, new Handle()));
                 }
                 catch (ArgumentException)
                 {
